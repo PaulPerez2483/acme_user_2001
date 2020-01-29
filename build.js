@@ -10,6 +10,7 @@ const renderData = (data) => {
 renderData(api);
 
 const renderHtml = (data) => {
+	console.log(data);
 	const ul = document.getElementById("user_holder");
 	const { users, count } = data;
 	linksCount(count);
@@ -32,7 +33,8 @@ const linksCount = (num) => {
 	pages.innerHTML = countArr.join("");
 };
 
-window.addEventListener("hashchange", () => {
+window.addEventListener("hashchange", (e) => {
+	console.log(e.target);
 	const id = window.location.hash.slice(1);
 	const ul = document.getElementById("user_holder");
 	fetch(`${api}/${id}`)
@@ -47,3 +49,19 @@ window.addEventListener("hashchange", () => {
 			ul.innerHTML = html;
 		});
 });
+const id = window.location.hash.slice(1);
+console.log(id);
+if (id) {
+	const ul = document.getElementById("user_holder");
+	fetch(`${api}/${id}`)
+		.then((response) => response.json())
+		.then((data) => {
+			const { users } = data;
+			let html = users
+				.map((user) => {
+					return `<li class="users"><span>${user.firstName}</span><span>${user.lastName}</span><span>${user.email}</span><span>${user.title}</span></li>`;
+				})
+				.join("");
+			ul.innerHTML = html;
+		});
+}
