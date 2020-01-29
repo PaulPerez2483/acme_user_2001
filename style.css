@@ -1,0 +1,45 @@
+h1 {
+	margin-left: 47px;
+}
+ul#user_holder {
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	margin-top: 0px;
+}
+li.users {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 0;
+	border-top: 1px solid black;
+}
+
+li.users > span {
+	flex: 1;
+}
+
+div {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 0;
+	margin-left: 38px;
+	background-color: dodgerblue;
+	color: white;
+}
+
+div > span {
+	flex: 1;
+}
+div > span:first-child {
+	margin-left: 10px;
+}
+
+li > span:first-child {
+	margin-left: 10px;
+}
+
+#pages {
+	display: flex;
+	list-style-type: none;
+	justify-content: space-between;
+}
